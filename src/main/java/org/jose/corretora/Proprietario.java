@@ -1,9 +1,9 @@
 package org.jose.corretora;
 
 public class Proprietario {
-    String nome;
-    String telefone;
-    String cpf;
+    private String nome;
+    private String telefone;
+    private String cpf;
 
     public Proprietario (String nome, String telefone, String cpf){
         this.nome = nome;

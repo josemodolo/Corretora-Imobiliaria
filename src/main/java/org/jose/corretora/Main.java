@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println(" Cadastro do Proprietário ");
+        System.out.println("=== Cadastro do Proprietário ===");
         System.out.print("Nome: ");
         String nome = sc.nextLine();
 
@@ -18,33 +18,47 @@ public class Main {
 
         Proprietario proprietario = new Proprietario(nome, telefone, cpf);
 
-        Casa casa = new Casa("Rua Alphaville", 123, proprietario);
-        Apartamento ap = new Apartamento("Av. Tamboré", 45, proprietario);
+        System.out.println("\n=== Cadastro do Imóvel ===");
+        System.out.print("Tipo de imóvel (1 - Casa / 2 - Apartamento): ");
+        int tipo = sc.nextInt();
+        sc.nextLine(); 
 
-        System.out.println("\n=== Situação Inicial ===");
-        System.out.println(casa.status());
-        System.out.println(ap.status());
+        System.out.print("Endereço (rua/avenida): ");
+        String endereco = sc.nextLine();
 
-        casa.alugado = true;
-        ap.alugado = true;
+        System.out.print("Número: ");
+        int numero = sc.nextInt();
 
-        System.out.println("\n=== Situação Atualizada ===");
-        System.out.println(casa.status());
-        System.out.println(ap.status());
+        Imovel imovel;
 
-        System.out.println("\n=== Cálculo do Aluguel ===");
-        System.out.print("Digite o valor base: ");
+        if (tipo == 1) {
+            imovel = new Casa(endereco, numero, proprietario);
+        } else {
+            imovel = new Apartamento(endereco, numero, proprietario);
+        }
+
+        System.out.print("\nO imóvel está alugado? (s/n): ");
+        sc.nextLine(); // limpar buffer
+        String resposta = sc.nextLine();
+        imovel.alugado = resposta.equalsIgnoreCase("s");
+
+        System.out.print("Digite o valor base do aluguel: ");
         int valorBase = sc.nextInt();
 
-        System.out.println("Valor do aluguel da casa: R$ " + casa.calcularAluguel(valorBase));
-        System.out.println("Valor do aluguel do apartamento: R$ " + ap.calcularAluguel(valorBase));
+        System.out.println("\n=== Resumo do Cadastro ===");
+        System.out.println("Proprietário: " + proprietario.getNome());
+        System.out.println("Telefone: " + proprietario.getTelefone());
+        System.out.println("CPF: " + proprietario.getCpf());
+        System.out.println(imovel.contatoProprietario());
 
-        System.out.println("\n=== Contato do Proprietário ===");
-        System.out.println(casa.contatoProprietario());
+        if (imovel instanceof Casa) {
+            System.out.println(((Casa) imovel).status());
+        } else if (imovel instanceof Apartamento) {
+            System.out.println(((Apartamento) imovel).status());
+        }
+
+        System.out.println("Valor total do aluguel: R$ " + imovel.calcularAluguel(valorBase));
 
         sc.close();
-
-
-
     }
 }
