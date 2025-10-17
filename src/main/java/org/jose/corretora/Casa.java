@@ -11,7 +11,7 @@ public class Casa extends Imovel{
     }
 
     public String status(){
-        return alugado? "A casa está disponivel" : "A casa está alugada";
+        return alugado? "A casa está em " + endereco + " número: " + numero +" está alugada" : "A casa em " + endereco + " número: " + numero + " está disponível";
     }
 
     @Override

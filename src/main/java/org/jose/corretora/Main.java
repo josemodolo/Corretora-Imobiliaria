@@ -18,15 +18,15 @@ public class Main {
 
         Proprietario proprietario = new Proprietario(nome, telefone, cpf);
 
-        Casa casa = new Casa("Rua Alphaville, 123", 123, proprietario);
-        Apartamento ap = new Apartamento("Av. Tamboré, 456", 45, proprietario);
+        Casa casa = new Casa("Rua Alphaville", 123, proprietario);
+        Apartamento ap = new Apartamento("Av. Tamboré", 45, proprietario);
 
         System.out.println("\n=== Situação Inicial ===");
         System.out.println(casa.status());
         System.out.println(ap.status());
 
         casa.alugado = true;
-        ap.alugado = false;
+        ap.alugado = true;
 
         System.out.println("\n=== Situação Atualizada ===");
         System.out.println(casa.status());

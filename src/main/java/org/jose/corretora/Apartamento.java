@@ -11,7 +11,7 @@ public class Apartamento  extends Imovel{
     }
 
     public String status(){
-        return alugado?  "O apartamento de número " + numero + " está disponível" : "O apartamento de número " + numero + "está alugado";
+        return alugado?  "O apartamento em: " + endereco + " de número:" + numero + " está disponível" : "O apartamento em: " + endereco + " de número:" + numero + " está alugado";
     }
 
     @Override
