@@ -21,7 +21,7 @@ public class Main {
         System.out.println("\n=== Cadastro do Imóvel ===");
         System.out.print("Tipo de imóvel (1 - Casa / 2 - Apartamento): ");
         int tipo = sc.nextInt();
-        sc.nextLine(); 
+        sc.nextLine();
 
         System.out.print("Endereço (rua/avenida): ");
         String endereco = sc.nextLine();
@@ -38,7 +38,7 @@ public class Main {
         }
 
         System.out.print("\nO imóvel está alugado? (s/n): ");
-        sc.nextLine(); // limpar buffer
+        sc.nextLine();
         String resposta = sc.nextLine();
         imovel.alugado = resposta.equalsIgnoreCase("s");
 

@@ -32,8 +32,8 @@ abstract class Imovel {
 
     public  String contatoProprietario(){
         return "Contato do proprietário: " + proprietario.getNome() +
-                "| Telefone: " + proprietario.getTelefone() +
-                "| CPF: " + proprietario.getCpf();
+                " | Telefone: " + proprietario.getTelefone() +
+                " | CPF: " + proprietario.getCpf();
     }
 
     public int calcularAluguel(int valorBase){
